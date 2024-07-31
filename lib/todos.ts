@@ -1,4 +1,3 @@
-import prisma from '@/lib/prisma'
 import { delay } from './utils'
 import { cache } from 'react'
 
@@ -34,7 +33,6 @@ export const getTodosByUserId = cache(async function (userId: string) {
 
 export const getTodos = cache(async function () {
   try {
-    console.log('getTodos')
     const todos = await prisma.todo.findMany()
     return { todos }
   } catch (error) {
